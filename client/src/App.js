@@ -1,5 +1,5 @@
 import { ThemeProvider } from "styled-components";
-import Login from "./Pages/Auth/Login";
+import Register from "./Pages/Auth/Register";
 
 function App() {
   const theme = {
@@ -25,7 +25,7 @@ function App() {
   };
   return (
     <ThemeProvider theme={theme}>
-    <Login/>
+    <Register/>
     </ThemeProvider>
   );
 }
