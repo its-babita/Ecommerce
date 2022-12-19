@@ -41,7 +41,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Cards />} />
-          <Route path="/cart" element={<CardsDetails/>}/>
+          <Route path="/cart/:id" element={<CardsDetails/>}/>
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/register" element={<Register />} />

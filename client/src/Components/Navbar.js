@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { FiShoppingCart } from "react-icons/fi";
@@ -8,8 +8,22 @@ import Menu from "@mui/material/Menu";
 import image from "../Assests/Images/cart.gif";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleXmark } from "@fortawesome/free-solid-svg-icons/faCircleXmark";
+import { useDispatch, useSelector } from "react-redux";
+import Table from "react-bootstrap/Table";
+import { faTrash } from "@fortawesome/free-solid-svg-icons/faTrash";
+import "../Assests/Styles/style.css";
+import { DLT } from "../redux/actions/action";
 
 const Navbar = () => {
+
+  const [price,setPrice]=useState(0)
+  //console.log(price);
+
+  const getdata = useSelector((state) => state.cartreducer.carts);
+  console.log(getdata);
+
+  const dispatch = useDispatch();
+
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -19,6 +33,22 @@ const Navbar = () => {
     setAnchorEl(null);
   };
   const [menuIcon, setMenuIcon] = useState();
+
+  const dlt=(id)=>{
+    dispatch(DLT(id))
+  }
+
+  const total=()=>{
+    let price=0;
+    getdata.map((ele,idx)=>{
+      price=ele.price+price;
+    })
+    setPrice(price);
+  }
+
+  useEffect(()=>{
+    total()
+  },[total])
 
   return (
     <Nav>
@@ -52,7 +82,7 @@ const Navbar = () => {
           </li>
 
           <li>
-            <NavLink className="navbar-link cart-trolley--link" >
+            <NavLink className="navbar-link cart-trolley--link">
               <FiShoppingCart className="cart-trolley" />
               {/* Badge */}
               <span
@@ -63,7 +93,7 @@ const Navbar = () => {
                 aria-expanded={open ? "true" : undefined}
                 onClick={handleClick}
               >
-                0
+                {getdata.length}
               </span>
             </NavLink>
             <Menu
@@ -76,34 +106,104 @@ const Navbar = () => {
                 "aria-labelledby": "basic-button",
               }}
             >
-              <div
-                className="card_details d-flex justify-content-center align-items-center"
-                style={{
-                  position:"relative",
-                  padding:10, 
-                  width:"34rem"                 
-                }}
-              >
-                <FontAwesomeIcon
-                  icon={faCircleXmark}
+              {getdata.length ? (
+                <div
+                  className="card_details"
+                  style={{ width: "24rem", padding: 10 }}
+                >
+                  <Table>
+                    <thead>
+                      <tr>
+                        <th>Photo</th>
+                        <th>Restaurant Name</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {getdata.map((e) => {
+                        return (
+                          <>
+                            <tr>
+                              <td>
+                                <NavLink
+                                  to={`/cart/${e.id}`}
+                                  onClick={handleClose}>
+                                  <img
+                                    src={e.imgdata}
+                                    style={{ width: "5rem", height: "5rem" }}
+                                    alt=""
+                                  />
+                                </NavLink>
+                              </td>
+                              <td>
+                                <p>{e.rname}</p>
+                                <p>Price:रु{e.price}</p>
+                                <p>Quantity:{e.qnty}</p>
+                                <p
+                                onClick={()=>dlt(e.id)}
+                                  style={{
+                                    color: "red",
+                                    fontSize: 20,
+                                    cursor: "pointer",
+                                  }}
+                                >
+                                  <FontAwesomeIcon
+                                    className="smalltrash"
+                                    icon={faTrash}
+                                  />
+                                </p>
+                              </td>
+                              <td
+                                className="mt-5"
+                                style={{
+                                  color: "red",
+                                  fontSize: 20,
+                                  cursor: "pointer",
+                                }}
+                              >
+                                <FontAwesomeIcon
+                                onClick={()=>dlt(e.id)}
+                                  className="largetrash"
+                                  icon={faTrash}
+                                />
+                              </td>
+                            </tr>
+                          </>
+                        );
+                      })}
+                      <p className="text-center">Total:{price}</p>
+                    </tbody>
+                  </Table>
+                </div>
+              ) : (
+                <div
+                  className="card_details d-flex justify-content-center align-items-center"
                   style={{
-                    fontSize:23,
-                    position: "absolute",
-                    top: 2,
-                    right: 20,
-                    cursor: "pointer",
+                    position: "relative",
+                    padding: 10,
+                    width: "34rem",
                   }}
-                  onClick={handleClose}
-                />
-                <br />
-                <p style={{ fontSize: 22 }}>Your carts is empty</p>
-                <img
-                  src={image}
-                  alt=""
-                  className="emptycart_img"
-                  style={{ width: "8rem", padding:10 }}
-                />
-              </div>
+                >
+                  <FontAwesomeIcon
+                    icon={faCircleXmark}
+                    style={{
+                      fontSize: 23,
+                      position: "absolute",
+                      top: 2,
+                      right: 20,
+                      cursor: "pointer",
+                    }}
+                    onClick={handleClose}
+                  />
+                  <br />
+                  <p style={{ fontSize: 22 }}>Your carts is empty</p>
+                  <img
+                    src={image}
+                    alt=""
+                    className="emptycart_img"
+                    style={{ width: "8rem", padding: 10 }}
+                  />
+                </div>
+              )}
             </Menu>
           </li>
         </ul>
