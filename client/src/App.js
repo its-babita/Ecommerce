@@ -9,8 +9,9 @@ import Contact from "./Pages/Contact";
 import Portfolio from "./Pages/Portfolio";
 import Service from "./Pages/Service";
 import Footer from "./Components/Footer";
-import Cards from "./Components/Cards";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Products from "./Pages/Products";
+import Home from "./Pages/Home"
 
 function App() {
   const theme = {
@@ -40,9 +41,10 @@ function App() {
       <Router>
         <Header />
         <Routes>
-          <Route path="/" element={<Cards />} />
+          <Route path="/" element={<Home />} />
           <Route path="/cart/:id" element={<CardsDetails/>}/>
           <Route path="/about" element={<About />} />
+          <Route path="/products" element={<Products/>}/>
           <Route path="/contact" element={<Contact />} />
           <Route path="/register" element={<Register />} />
           <Route path="/Service" element={<Service />} />
