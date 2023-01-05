@@ -1,8 +1,8 @@
 const Cardsdata = [
     {
         id: 1,
-        rname: "Massala Theoryy",
-        imgdata: "https://b.zmtcdn.com/data/pictures/9/18857339/8f53919f1175c08cf0f0371b73704f9b_o2_featured_v2.jpg?output-format=webp",
+        rname: "Jordan Shoes",
+        imgdata: "https://sajhakinmel.com/public/uploads/all/K4rtgt7eloGhKdxRdRehcrqJM7QDq09J7azTbX6m.jpg",
         address: "North Indian, Biryani, Mughlai",
         delimg: "https://b.zmtcdn.com/data/o2_assets/0b07ef18234c6fdf9365ad1c274ae0631612687510.png?output-format=webp",
         somedata: " 1175 + order placed from here recently",
@@ -13,8 +13,8 @@ const Cardsdata = [
     },
     {
         id: 2,
-        rname: "Jugaadi Adda",
-        imgdata: "https://b.zmtcdn.com/data/pictures/chains/5/19295245/089cbcf1d3307542c72f77272556b28b_o2_featured_v2.jpg?output-format=webp",
+        rname: "Puma shoes",
+        imgdata: "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_300,h_300/global/391515/01/fnd/IND/fmt/png/Harrow-Women's-Shoes",
         address: "Street Food",
         delimg: "https://b.zmtcdn.com/data/o2_assets/0b07ef18234c6fdf9365ad1c274ae0631612687510.png?output-format=webp",
         somedata: " 2525 + order placed from here recently",
@@ -25,8 +25,8 @@ const Cardsdata = [
     },
     {
         id: 3,
-        rname: "La Milano Pizzeria",
-        imgdata: "https://b.zmtcdn.com/data/pictures/chains/1/19708611/10f90d4a69678d98662514d173b29665_o2_featured_v2.jpg",
+        rname: " One piece",
+        imgdata: "https://www.fabfunda.com/product-img/thumb/Mahira-m-1647341548.jpeg",
         address: "Pizza, Fast Food, Pasta",
         delimg: "https://b.zmtcdn.com/data/o2_assets/0b07ef18234c6fdf9365ad1c274ae0631612687510.png?output-format=webp",
         somedata: " 650 + order placed from here recently",

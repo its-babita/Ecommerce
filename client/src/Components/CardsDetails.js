@@ -5,7 +5,7 @@ import { faTrash } from "@fortawesome/free-solid-svg-icons/faTrash";
 import styled from 'styled-components';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { ADD, DLT, REMOVE } from '../redux/actions/action';
+import { ADD, DLT, REMOVE } from '../Services/Actions/action';
 
 const CardsDetails = () => {
 

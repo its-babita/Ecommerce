@@ -23,7 +23,7 @@ const Login = () => {
                 <p className="modal-desc">Already have an account</p>
                 <Form/>
                 <p className="sign-up">
-                   Create an account? <a href="signup"> SignUp now</a>
+                   Create an account? <a href="register"> SignUp now</a>
                 </p>
               </div>
             </div>
