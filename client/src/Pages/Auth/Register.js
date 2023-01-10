@@ -31,7 +31,7 @@ const Register = () => {
                 <p className="modal-desc">CREATE AN ACCOUNT</p>
                 <Form />
                 <p className="sign-up">
-                  Already have an account? <a href="signin"> SignIn now</a>
+                  Already have an account? <a href="/"> SignIn now</a>
                 </p>
               </div>
             </div>

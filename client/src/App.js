@@ -1,16 +1,8 @@
 import { ThemeProvider } from "styled-components";
 import { GlobalStyle } from "./Assests/Styles/globalStyles";
-import Register from "./Pages/Auth/Register";
-import Login from "./Pages/Auth/Login";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Header from "./Layouts/Header";
-import CardsDetails from "./Components/CardsDetails";
-import About from "./Pages/About";
-import Contact from "./Pages/Contact";
-import Footer from "./Layouts/Footer";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Products from "./Pages/Products";
-import Home from "./Pages/Home";
+import { Router } from "./Router/Routes";
+import { RouterProvider } from "react-router-dom";
 
 function App() {
   const theme = {
@@ -37,23 +29,22 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <Router>
+      {/* <Router>
         <Header />
         <Routes>
-          <Route path="/" element={<Home />} />
+        <Route path="/register" element={<Register />} />
+          <Route path="/" element={<Login />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/cart/:id" element={<CardsDetails />} />
           <Route path="/about" element={<About />} />
           <Route path="/products" element={<Products />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
         <Footer />
-      </Router>
-      <Router>
-        <Routes>
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
-        </Routes>
-      </Router>
+      </Router> */}
+      <RouterProvider router={Router}>
+
+      </RouterProvider>
     </ThemeProvider>
   );
 }

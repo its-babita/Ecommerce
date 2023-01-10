@@ -76,6 +76,11 @@ const Navbar = () => {
               Contact
             </NavLink>
           </li>
+          <li>
+            <NavLink className="navbar-link" to="/login">
+              Login
+            </NavLink>
+          </li>
 
           <li>
             <NavLink className="navbar-link cart-trolley--link">
