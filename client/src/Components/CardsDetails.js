@@ -33,7 +33,7 @@ const CardsDetails = () => {
 
  const dlt=(id)=>{
   dispatch(DLT(id))
-  navigate("/")
+  navigate("/products")
  }
 
  //remove one
